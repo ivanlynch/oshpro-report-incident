@@ -1,9 +1,18 @@
 {
+  "name": "oshpro-report-incident",
+  "version": "1.0.0",
+  "auto-changelog": {
+    "output": "HISTORY.md",
+    "template": "keepachangelog",
+    "unreleased": true,
+    "commitLimit": false
+  },
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
     "format": "prettier --write \"src/**/*.js\"",
-    "lint": "prettier --check \"src/**/*.js\""
+    "lint": "prettier --check \"src/**/*.js\"",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "dependencies": {
     "@capacitor/android": "^2.4.4",
@@ -31,6 +40,7 @@
     "minimatch": "^3.0.4",
     "prettier": "^2.0.5",
     "snowpack": "^2.17.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "auto-changelog": "*"
   }
 }
