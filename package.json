@@ -1,12 +1,6 @@
 {
   "name": "oshpro-report-incident",
   "version": "1.0.0",
-  "auto-changelog": {
-    "output": "HISTORY.md",
-    "template": "keepachangelog",
-    "unreleased": true,
-    "commitLimit": false
-  },
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
