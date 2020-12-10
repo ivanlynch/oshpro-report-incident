@@ -1,0 +1,9 @@
+.build
+build
+web_modules
+node_modules
+www/resources
+ios
+android
+.gradle
+.vscode

@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog
+		id="createEmpresas" title="Nueva Empresa">
+    <content>
+      <form:SimpleForm >
+        <Label text="Nombre"/>
+        <Input placeholder="Ingrese el nombre de la empresa" value="{nombre}"/>
+        <Label text="Rubro"/>
+        <Input placeholder="Ingrese el rubro de la empresa" value="{rubro}"/>
+      </form:SimpleForm>
+    </content>
+    <endButton>
+      <Button text="Cerrar" press="onCerrar"/>
+    </endButton>
+		<beginButton>
+			<Button
+				text="Crear"
+				press="onCrear"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>
