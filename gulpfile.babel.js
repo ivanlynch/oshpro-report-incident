@@ -7,14 +7,16 @@ import del from 'del';
 import ui5preload from 'gulp-ui5-preload';
 import uglify from 'gulp-uglify';
 import gulpif from 'gulp-if';
-const conventionalRecommendedBump = require('conventional-recommended-bump');
-const conventionalGithubReleaser = require('conventional-github-releaser');
+import conventionalRecommendedBump from 'conventional-recommended-bump';
+import conventionalGithubReleaser from 'conventional-github-releaser';
 const execa = require('execa');
 const fs = require('fs');
 const { promisify } = require('util');
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 
 const result = dotenv.config();
+
+console.log(result);
 
 if (result.error) {
   throw result.error;
@@ -61,6 +63,15 @@ task('CHANGELOG', (done) => {
   });
 });
 
+task('GITHUB_RELEASE', (done) => {
+  console.log(process.env.GH_TOKEN);
+  conventionalGithubReleaser(
+    { type: 'oauth', token: process.env.GH_TOKEN },
+    { preset: CONFIG.PRESET },
+    done,
+  );
+});
+
 task('COMMIT_TAG_PUSH', (done) => {
   // Read package.json
   fs.readFile('package.json', (err, file) => {
@@ -84,12 +95,6 @@ task('COMMIT_TAG_PUSH', (done) => {
       });
     });
   });
-  //   const { version } = JSON.parse(await promisify(fs.readFile)('package.json'));
-  //   const commitMsg = `chore: release ${version}`;
-  //   await execa('git', ['add', '.'], { stdio });
-  //   await execa('git', ['commit', '--message', commitMsg], { stdio });
-  //   await ;
-  //   await execa('git', ['push', '--follow-tags'], { stdio });
 });
 
 task('CLEAN_FOLDER', (done) => {
