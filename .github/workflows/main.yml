@@ -63,6 +63,7 @@ jobs:
           git-user-email: 'ivan.lynch@outlook.com.ar'
 
   pullrequest:
+    needs: changelog
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
