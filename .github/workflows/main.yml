@@ -50,8 +50,8 @@ jobs:
     name: CHANGELOG
     runs-on: ubuntu-latest
     steps:
-      - name: "BUILD_CHANGELOG"
-        uses: heinrichreimer/github-changelog-generator-action@v2.1.1
+      - uses: actions/checkout@v1
+      - uses: coffeedoughnuts/clog@v1
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          githubToken: ${{ secrets.GH_TOKEN }}
     
