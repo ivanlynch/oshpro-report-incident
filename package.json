@@ -9,7 +9,7 @@
   },
   "release": {
     "branches": [
-      "main"
+      "master"
     ]
   },
   "dependencies": {
