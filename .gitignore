@@ -7,3 +7,4 @@ ios
 android
 .gradle
 .vscode
+.env
