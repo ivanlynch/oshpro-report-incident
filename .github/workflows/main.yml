@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches: 
-      - master
+      - main
 
 jobs:
   build:
@@ -13,4 +13,4 @@ jobs:
       - name: 'Checkout code'
         uses: 'actions/checkout@v2'
       - name: 'Running tests'
-        run: 'TODO TESTS'
+        run: echo "TODO TESTS"
