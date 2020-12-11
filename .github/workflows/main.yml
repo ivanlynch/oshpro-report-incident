@@ -17,7 +17,7 @@ jobs:
 
   bump-version:
     needs: test
-    name: "BUMP_VERSION"
+    name: BUMP VERSION
     runs-on: ubuntu-latest
 
     steps:
@@ -46,8 +46,8 @@ jobs:
         run: echo "new tag $NEW_TAG"
 
   changelog:
-    needs: BUMP_VERSION
-    name: 'CHANGELOG'
+    needs: bump-version
+    name: CHANGELOG
     runs-on: ubuntu-latest
     steps:
       - name: "BUILD_CHANGELOG"
