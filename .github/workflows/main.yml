@@ -15,16 +15,32 @@ jobs:
       - name: 'Running tests'
         run: echo "TODO TESTS"
 
-  bump:
-    needs: test
-    name: 'BUMP'
+  bump-version:
+    name: "Bump Version on master"
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-        with:
-          fetch-depth: 1
 
-      - name: Bump Version
-        uses: opspresso/action-version@master
+    steps:
+      - name: "Checkout source code"
+        uses: "actions/checkout@v2"
+        with:
+          ref: ${{ github.ref }}
+      - name: "cat package.json"
+        run: cat ./package.json
+      - name: "Setup Node.js"
+        uses: "actions/setup-node@v1"
+        with:
+          node-version: 12
+      - name: "Automated Version Bump"
+        id: version-bump
+        uses: "phips28/gh-action-bump-version@master"
+        with:
+          tag-prefix: ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: "cat package.json"
+        run: cat ./package.json
+      - name:  'Output Step'
+        env:
+          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+        run: echo "new tag $NEW_TAG"
     
