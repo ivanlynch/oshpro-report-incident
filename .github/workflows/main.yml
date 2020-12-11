@@ -33,7 +33,7 @@ jobs:
       - name: Release to GitHub
         working-directory: ./.github/workflows
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SCP }}
           GIT_AUTHOR_NAME: Iván Lynch
           GIT_AUTHOR_EMAIL: ivan.lynch@outlook.com.ar
           GIT_COMMITTER_NAME: Iván Lynch
