@@ -1,12 +1,11 @@
 {
   "name": "oshpro-report-incident",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
     "format": "prettier --write \"src/**/*.js\"",
-    "lint": "prettier --check \"src/**/*.js\"",
-    "version": "auto-changelog -p && git add CHANGELOG.md"
+    "lint": "prettier --check \"src/**/*.js\""
   },
   "dependencies": {
     "@capacitor/android": "^2.4.4",
