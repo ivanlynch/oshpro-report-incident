@@ -12,15 +12,12 @@
     "@capacitor/cli": "^2.4.4",
     "@capacitor/core": "^2.4.4",
     "@capacitor/ios": "^2.4.4",
-    "canvas-confetti": "^1.2.0",
-    "conventional-recommended-bump": "^6.0.11",
     "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
     "@babel/register": "^7.12.1",
-    "auto-changelog": "*",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
@@ -35,7 +32,6 @@
     "gulp-unzip": "^1.1.0",
     "minimatch": "^3.0.4",
     "prettier": "^2.0.5",
-    "semantic-release": "^17.3.0",
     "snowpack": "^2.17.1",
     "vinyl-source-stream": "^2.0.0"
   }
