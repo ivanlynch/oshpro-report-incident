@@ -5,7 +5,8 @@
     "start": "snowpack dev",
     "build": "snowpack build",
     "format": "prettier --write \"src/**/*.js\"",
-    "lint": "prettier --check \"src/**/*.js\""
+    "lint": "prettier --check \"src/**/*.js\"",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "dependencies": {
     "@capacitor/android": "^2.4.4",
@@ -18,12 +19,7 @@
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
     "@babel/register": "^7.12.1",
-    "conventional-changelog-cli": "^2.1.1",
-    "conventional-github-releaser": "^3.1.5",
-    "conventional-recommended-bump": "^6.0.11",
     "del": "^6.0.0",
-    "dotenv": "^8.2.0",
-    "execa": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-download": "0.0.1",
@@ -38,6 +34,7 @@
     "minimatch": "^3.0.4",
     "prettier": "^2.0.5",
     "snowpack": "^2.17.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "auto-changelog": "*"
   }
 }
