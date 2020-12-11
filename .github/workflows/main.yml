@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches: 
-      - master
+      - main
 
 jobs:
   test:
@@ -16,6 +16,7 @@ jobs:
         run: echo "TODO TESTS"
 
   bump:
+    needs: test
     name: 'BUMP'
     runs-on: ubuntu-latest
     steps:
