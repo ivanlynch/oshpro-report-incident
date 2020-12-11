@@ -60,13 +60,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           ref: main
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3
       - name: Check outputs
+        with:
+          token: ${{ secrets.GH_TOKEN }}
         run: |
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
           echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"  
