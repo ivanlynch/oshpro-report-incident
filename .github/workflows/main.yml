@@ -58,22 +58,24 @@ jobs:
         uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.GH_TOKEN }}
-  pull_request:
+          git-message: 'Updated Changelog'
+          git-user-name: 'Iván Lynch'
+          git-user-email: 'ivan.lynch@outlook.com.ar'
+
+  pullrequest:
     needs: changelog
-    name: PULL REQUEST
+    name: 'CREATE PULL REQUEST'
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           ref: master
+      - name: Reset promotion branch
+        run: |
+          git fetch origin main:main
+          git reset --hard main
       - name: Create Pull Request
-        id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.GH_TOKEN }}
           branch: main
-      - name: Check outputs
-        run: |
-          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"  
+          token: ${{ secrets.GH_TOKEN }}
