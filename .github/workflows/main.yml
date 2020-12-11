@@ -61,6 +61,8 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v1
+        with:
+          ref: main
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3
