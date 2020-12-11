@@ -7,11 +7,6 @@
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "prettier --check \"src/**/*.js\""
   },
-  "release": {
-    "branches": [
-      "master"
-    ]
-  },
   "dependencies": {
     "@capacitor/android": "^2.4.4",
     "@capacitor/cli": "^2.4.4",
