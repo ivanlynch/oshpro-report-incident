@@ -54,4 +54,10 @@ jobs:
       - uses: coffeedoughnuts/clog@v1
         with:
           githubToken: ${{ secrets.GH_TOKEN }}
-    
+  pull_request:
+    needs: changelog
+    name: PULL REQUEST
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3    
