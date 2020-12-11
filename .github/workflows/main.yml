@@ -16,7 +16,8 @@ jobs:
         run: echo "TODO TESTS"
 
   bump-version:
-    name: "BUMP VERSION"
+    needs: test
+    name: "BUMP_VERSION"
     runs-on: ubuntu-latest
 
     steps:
@@ -45,11 +46,11 @@ jobs:
         run: echo "new tag $NEW_TAG"
 
   changelog:
+    needs: BUMP_VERSION
     name: 'CHANGELOG'
     runs-on: ubuntu-latest
     steps:
-      - name: "Build Changelog"
-        id: build_changelog
+      - name: "BUILD_CHANGELOG"
         uses: mikepenz/release-changelog-builder-action@main
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
