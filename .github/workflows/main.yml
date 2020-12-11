@@ -50,6 +50,10 @@ jobs:
     name: CHANGELOG
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: master
       - name: Conventional Changelog Action
         uses: TriPSs/conventional-changelog-action@v3
         with:
