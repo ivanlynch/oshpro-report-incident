@@ -50,10 +50,10 @@ jobs:
     name: CHANGELOG
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: coffeedoughnuts/clog@v1
+      - name: Conventional Changelog Action
+        uses: TriPSs/conventional-changelog-action@v3
         with:
-          githubToken: ${{ secrets.GH_TOKEN }}
+          github-token: ${{ secrets.GH_TOKEN }}
   pull_request:
     needs: changelog
     name: PULL REQUEST
