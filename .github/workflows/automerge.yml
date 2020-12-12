@@ -1,0 +1,19 @@
+name: AUTOMERGE
+
+on:
+  check_suite:
+    types:
+      - completed
+jobs:
+  automerge:
+    if: github.event.review.state == 'approved' || !github.event.review
+    runs-on: ubuntu-latest
+    steps:
+      - uses: reitermarkus/automerge@v1
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          merge-method: merge
+          do-not-merge-labels: never-merge
+          required-labels: automerge
+          pull-request: ${{ github.event.inputs.pull-request }}
+          dry-run: true
