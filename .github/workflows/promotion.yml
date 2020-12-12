@@ -16,8 +16,8 @@ jobs:
           ref: main
       - name: RESET PROMOTION BRANCH
         run: |
-          git fetch origin main:main
-          git reset --hard main
+          git fetch origin master:master
+          git reset --hard master
       - name: GENERATE PULL REQUEST
         uses: peter-evans/create-pull-request@v3
         with:
