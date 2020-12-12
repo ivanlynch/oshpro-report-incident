@@ -21,5 +21,7 @@ jobs:
       - name: GENERATE PULL REQUEST
         uses: peter-evans/create-pull-request@v3
         with:
+          title: '🚀 new pull request 🚀'
           branch: main-promotion
           token: ${{ secrets.GH_TOKEN }}
+          delete-branch: true
