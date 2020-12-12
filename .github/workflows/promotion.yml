@@ -21,7 +21,9 @@ jobs:
       - name: GENERATE PULL REQUEST
         uses: peter-evans/create-pull-request@v3
         with:
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           title: '🚀 new pull request 🚀'
           branch: main-promotion
           token: ${{ secrets.GH_TOKEN }}
+          labels: automated pr
           delete-branch: true
