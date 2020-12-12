@@ -1,6 +1,6 @@
 {
   "name": "oshpro-report-incident",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
