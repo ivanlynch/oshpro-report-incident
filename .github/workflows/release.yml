@@ -1,0 +1,16 @@
+name: RELEASE
+
+on:
+  pull_request_target:
+    branches:
+      - main
+
+jobs:
+  test:
+      name: 'TESTING'
+      runs-on: ubuntu-latest
+      steps:
+        - name: 'CHECKOUT REPOSITORY'
+          uses: 'actions/checkout@v2'
+        - name: 'RUNNING TESTS'
+          run: echo "TODO TESTS"

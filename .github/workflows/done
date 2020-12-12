@@ -1,13 +1,4 @@
-test:
-    name: 'TESTING'
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Checkout code'
-        uses: 'actions/checkout@v2'
-      - name: 'Running tests'
-        run: echo "TODO TESTS"
-
-  bump-version:
+bump-version:
     needs: test
     name: BUMP VERSION
     runs-on: ubuntu-latest
