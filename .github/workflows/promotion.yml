@@ -13,7 +13,7 @@ jobs:
       - name: GET REPOSITORY
         uses: actions/checkout@v2
         with:
-            ref: ${{ github.ref }}
+            ref: main
       - name: RESET PROMOTION BRANCH
         run: |
           git fetch origin master:master
