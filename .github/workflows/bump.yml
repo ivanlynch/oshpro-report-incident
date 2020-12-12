@@ -38,4 +38,4 @@ jobs:
           automatic_release_tag: "latest"
           repo_token: "${{ secrets.GH_TOKEN }}"
           title: "DEVELOPMENT"
-          prerelease: true
+          prerelease: false
