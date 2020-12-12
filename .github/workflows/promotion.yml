@@ -2,7 +2,6 @@ name: PROMOTION
 
 on:
   push:
-    branches: 
       - master
 
 jobs:
