@@ -34,5 +34,5 @@ jobs:
           title: ${{ github.event.head_commit.message }}
           branch: promotion
           token: ${{ secrets.GH_TOKEN }}
-          labels: automated pr
+          labels: automated pr, automerge
           delete-branch: true
