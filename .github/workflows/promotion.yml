@@ -24,7 +24,7 @@ jobs:
           branch-suffix: short-commit-hash
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           title: ${{ github.event.head_commit.message }}
-          branch: main-promotion
+          branch: commit
           token: ${{ secrets.GH_TOKEN }}
           labels: automated pr
           delete-branch: true

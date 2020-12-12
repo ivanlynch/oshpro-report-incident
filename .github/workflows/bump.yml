@@ -22,9 +22,9 @@ jobs:
         uses: "phips28/gh-action-bump-version@master"
         with:
           tag-prefix: ''
-          minor-wording:  'chore'
-          major-wording:  'feat'
-          patch-wording:  'fix'
+          major-wording:  'BREAKING CHANGE'
+          minor-wording:  'feat'
+          patch-wording:  'fix,chore,style,docs,refactor,build,perf,test'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - name:  'OUTPUT NEW TAG'
