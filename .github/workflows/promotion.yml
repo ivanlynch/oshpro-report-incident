@@ -21,8 +21,9 @@ jobs:
       - name: GENERATE PULL REQUEST
         uses: peter-evans/create-pull-request@v3
         with:
+          branch-suffix: short-commit-hash
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          title: '🚀 new pull request 🚀'
+          title: ${{ github.event.head_commit.message }}
           branch: main-promotion
           token: ${{ secrets.GH_TOKEN }}
           labels: automated pr
