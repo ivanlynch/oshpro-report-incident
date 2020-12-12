@@ -19,7 +19,7 @@ jobs:
     name: MERGE
     runs-on: ubuntu-latest
     steps:
-      - name: Merge me!
+      - name: MERGING
         uses: ridedott/merge-me-action@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
