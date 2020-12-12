@@ -6,7 +6,16 @@ on:
       - master
 
 jobs:
+  test:
+    name: 'TESTING'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout code'
+        uses: 'actions/checkout@v2'
+      - name: 'Running tests'
+        run: echo "TODO TESTS"
   promotion:
+    needs: test
     name: 'CREATE PULL REQUEST'
     runs-on: ubuntu-latest
     steps:
@@ -21,10 +30,9 @@ jobs:
       - name: GENERATE PULL REQUEST
         uses: peter-evans/create-pull-request@v3
         with:
-          branch-suffix: short-commit-hash
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           title: ${{ github.event.head_commit.message }}
-          branch: commit
+          branch: promotion
           token: ${{ secrets.GH_TOKEN }}
           labels: automated pr
           delete-branch: true
