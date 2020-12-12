@@ -8,3 +8,4 @@ android
 .gradle
 .vscode
 .env
+.DS_Store
