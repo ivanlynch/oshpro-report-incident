@@ -8,6 +8,12 @@ import ui5preload from 'gulp-ui5-preload';
 import uglify from 'gulp-uglify';
 import gulpif from 'gulp-if';
 
+let CONFIG = {
+  URL: '',
+  PRESET: 'angular',
+  STDIO: 'inherit',
+};
+
 task('CLEAN_FOLDER', (done) => {
   del(['./runtime.zip', './www/resources']).then(() => {
     done();
