@@ -2,7 +2,6 @@
      xmlns="sap.m" 
      controllerName="ctx.controller.Detail"
      xmlns:mvc="sap.ui.core.mvc" >
-     <!-- commentario -->
     <Page title="{nombre}" showNavButton="true" navButtonPress="onNavBack">
         <List id="empleadosList" items="{path: 'empleados', parameters: {
             $$updateGroupId : 'empleadosGroup'
