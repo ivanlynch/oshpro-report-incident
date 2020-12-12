@@ -1,26 +1,19 @@
 name: AUTOMERGE
 
 on:
-  check_suite:
+  pull_request_target:
     types:
-      - completed
-  pull_request:
-    types:
-      - edited
       - labeled
-      - opened
-      - ready_for_review
-      - reopened
-      - synchronize
-      - unlabeled
-      - unlocked
 jobs:
-  merge-me:
-    name: MERGE
+  automerge:
+    if: github.event.review.state == 'approved' || !github.event.review
     runs-on: ubuntu-latest
     steps:
-      - name: Merge me!
-        uses: ridedott/merge-me-action@v1
+      - uses: reitermarkus/automerge@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          MERGE_METHOD: MERGE
+          token: ${{ secrets.GH_TOKEN }}
+          merge-method: rebase
+          do-not-merge-labels: never-merge
+          required-labels: automerge
+          pull-request: ${{ github.event.inputs.pull-request }}
+          dry-run: true
