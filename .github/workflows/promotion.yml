@@ -1,0 +1,25 @@
+name: PROMOTION
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  promotion:
+    name: 'CREATE PULL REQUEST'
+    runs-on: ubuntu-latest
+    steps:
+      - name: GET REPOSITORY
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: RESET PROMOTION BRANCH
+        run: |
+          git fetch origin main:main
+          git reset --hard main
+      - name: GENERATE PULL REQUEST
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: main
+          token: ${{ secrets.GH_TOKEN }}
