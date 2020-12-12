@@ -1,0 +1,46 @@
+bump-version:
+    needs: test
+    name: BUMP VERSION
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "checkout code"
+        uses: "actions/checkout@v2"
+        with:
+          ref: ${{ github.ref }}
+      - name: "cat package json"
+        run: cat ./package.json
+      - name: "setup nodejs"
+        uses: "actions/setup-node@v1"
+        with:
+          node-version: 12
+      - name: "automated version bump"
+        id: version-bump
+        uses: "phips28/gh-action-bump-version@master"
+        with:
+          tag-prefix: ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: "cat package.json"
+        run: cat ./package.json
+      - name:  'Output Step'
+        env:
+          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+        run: echo "new tag $NEW_TAG"
+
+  changelog:
+    needs: bump-version
+    name: CHANGELOG
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Conventional Changelog Action
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+          git-message: 'Updated Changelog'
+          git-user-name: 'Iván Lynch'
+          git-user-email: 'ivan.lynch@outlook.com.ar'
