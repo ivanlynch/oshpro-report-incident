@@ -13,7 +13,7 @@ jobs:
       - name: GET REPOSITORY
         uses: actions/checkout@v2
         with:
-          ref: master
+          ref: main
       - name: RESET PROMOTION BRANCH
         run: |
           git fetch origin main:main
@@ -21,5 +21,5 @@ jobs:
       - name: GENERATE PULL REQUEST
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: main
+          branch: main-promotion
           token: ${{ secrets.GH_TOKEN }}
