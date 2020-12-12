@@ -1,0 +1,31 @@
+name: BUMP VERSION
+
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  bump-version:
+      name: BUMP VERSION
+      runs-on: ubuntu-latest
+      steps:
+        - name: "GET REPOSITORY"
+          uses: "actions/checkout@v2"
+          with:
+            ref: ${{ github.ref }}
+        - name: "SETUP NODEJS"
+          uses: "actions/setup-node@v1"
+          with:
+            node-version: 12
+        - name: "AUTOMATED VERSION BUMP"
+          id: version-bump
+          uses: "phips28/gh-action-bump-version@master"
+          with:
+            tag-prefix: ''
+          env:
+            GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        - name:  'OUTPUT NEW TAG'
+          env:
+            NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+          run: echo "new tag $NEW_TAG"

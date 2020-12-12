@@ -1,0 +1,16 @@
+changelog:
+    needs: bump-version
+    name: CHANGELOG
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: master
+      - name: Conventional Changelog Action
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+          git-message: 'Updated Changelog'
+          git-user-name: 'Iván Lynch'
+          git-user-email: 'ivan.lynch@outlook.com.ar'
