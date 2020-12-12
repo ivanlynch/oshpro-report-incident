@@ -1,12 +1,4 @@
-name: Release
-
-on:
-  push:
-    branches: 
-      - master
-
-jobs:
-  test:
+test:
     name: 'TESTING'
     runs-on: ubuntu-latest
     steps:
@@ -61,21 +53,3 @@ jobs:
           git-message: 'Updated Changelog'
           git-user-name: 'Iván Lynch'
           git-user-email: 'ivan.lynch@outlook.com.ar'
-
-  pullrequest:
-    needs: changelog
-    name: 'CREATE PULL REQUEST'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: master
-      - name: Reset promotion branch
-        run: |
-          git fetch origin main:main
-          git reset --hard main
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          branch: main
-          token: ${{ secrets.GH_TOKEN }}
