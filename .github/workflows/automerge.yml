@@ -23,3 +23,4 @@ jobs:
         uses: ridedott/merge-me-action@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          MERGE_METHOD: MERGE
