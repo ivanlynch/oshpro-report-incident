@@ -6,6 +6,7 @@ on:
       - labeled
 jobs:
   automerge:
+    name: AUTOMERGE
     runs-on: ubuntu-latest
     steps:
       - uses: reitermarkus/automerge@v1
