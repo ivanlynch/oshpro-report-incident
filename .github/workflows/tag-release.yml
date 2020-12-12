@@ -9,9 +9,12 @@ jobs:
   tagged-release:
     name: "TAGGED RELEASE"
     runs-on: "ubuntu-latest"
-
     steps:
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: "BUILD TAG"
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GH_TOKEN }}"
           prerelease: false
+          files: |
+            LICENSE.txt
+            *.jar
