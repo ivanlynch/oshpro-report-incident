@@ -4,6 +4,9 @@ on:
   pull_request_target:
     types:
       - labeled
+  check_suite:
+    types:
+      - completed
 jobs:
   automerge:
     name: AUTOMERGE
