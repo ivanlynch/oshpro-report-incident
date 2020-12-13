@@ -9,7 +9,7 @@ on:
       - completed
 jobs:
   automerge:
-    name: AUTOMERGE
+    name: AUTOMERGED
     runs-on: ubuntu-latest
     steps:
       - name: automerge
