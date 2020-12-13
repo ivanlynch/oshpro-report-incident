@@ -36,3 +36,4 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
           labels: automerge
           delete-branch: true
+          
