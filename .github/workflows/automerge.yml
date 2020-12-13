@@ -4,16 +4,17 @@ on:
   pull_request_target:
     types:
       - labeled
+  check_suite:
+    types:
+      - completed
 jobs:
   automerge:
     name: AUTOMERGE
     runs-on: ubuntu-latest
     steps:
-      - uses: reitermarkus/automerge@v1
+      - name: automerge
+        uses: "pascalgn/automerge-action@v0.12.0"
         with:
-          token: ${{ secrets.GH_TOKEN }}
-          merge-method: merge
-          do-not-merge-labels: never-merge
-          required-labels: automerge
-          pull-request: ${{ github.event.inputs.pull-request }}
-          dry-run: true
+          args: "--trace"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
