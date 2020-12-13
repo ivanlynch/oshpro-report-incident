@@ -20,4 +20,4 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GH_TOKEN }}"
           MERGE_COMMIT_MESSAGE: "pull-request-title"
           MERGE_REMOVE_LABELS: "automerge"
-          UPDATE_LABELS: "automerged"
+          UPDATE_LABELS: "merged"
